@@ -6,7 +6,6 @@ def count_xmas(s: str) -> int:
         ss = s[i:i+4]
         if ss == 'XMAS' or ss == 'SAMX':
             count += 1
-            # print(s)
     return count
 
 
@@ -17,12 +16,9 @@ if __name__ == "__main__":
             table.append(row.strip())
 
     n, result = len(table), 0
-
     # left <-> right
     for lr in table:
         result += count_xmas(lr)
-    print(result)
-
     # top <-> down
     j = 0
     while j < n:
@@ -31,8 +27,6 @@ if __name__ == "__main__":
             s.append(table[i][j])
         result += count_xmas("".join(s))
         j += 1
-    print(result)
-
     # left-right diagonal
     i, j = n - 1, 0
     while i >= 0 and j < n:
@@ -47,8 +41,6 @@ if __name__ == "__main__":
         if i == -1:
             j += 1
             i = 0
-    print(result)
-
     # right-left diagonal
     i, j = 0, 0
     while i < n and j < n:
